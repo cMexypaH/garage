@@ -7,16 +7,13 @@
 #                    Requires abraboxabra-agent.py
 # 1.0 - 2015-07-10 - Initial Release
 
-import threading
 import time
 import RPi.GPIO as GPIO
-import os
 from bluetooth import *
 from threading import *
 import subprocess
-import ConfigParser
-import signal
-import psutil
+import configparser
+import commands
 
 # SETTINGS
 pairing_running = 0
@@ -24,21 +21,29 @@ agent_path = '/home/pi/abra/abraboxabra-agent.py'
 test_device_path = '/usr/bin/bluez-test-device'
 
 # INI SECTION
-config_file = '/home/pi/abra/config.ini'
+config_file = 'config.ini'
 default_pass = '0000'
 
 
 # Function for handling connections. This will be used to create threads
-def clientthread(conn):
-    global first_time
+def clientthread(conn, cl_info):
     # infinite loop so that function do not terminate and thread do not end.
     while True:
         try:
             # Receiving from client
             data = conn.recv(1024)
-            print("received command [%s]" % data)
+            data = data.decode('utf_8')
+            data = data.lower()
+
+            print(f"received command {data} from {cl_info}")
 
             # client_sock.send('received message ' + data);
+
+            dt = commands.command(data)
+
+            conn.send(dt)
+
+            """
             if data == 'openclose':
                 if first_time:
                     GPIO.setup(11, GPIO.OUT)
@@ -63,28 +68,28 @@ def clientthread(conn):
                 else:
                     print("Pairing in progress. Not starting new thread")
                 # thread.start_new_thread( thread_pairing, ("Thread-1", 10, ) )
-
+            """
         except IOError:
             print("Disconnected from ", client_info)
-            pass
+            break
 
     # came out of loop
     conn.close()
 
 
-def thread_pairing(threadName, delay):
-    print("Thread " + threadName + "  started")
+def thread_pairing(threadname, delay):
+    print("Thread " + threadname + "  started")
     global pairing_running
 
     pairing_running = 1
 
-    os.system("hciconfig hci0 piscan");
-    process = subprocess.Popen([agent_path, "-p" + default_pass]);
+    os.system("hciconfig hci0 piscan")
+    process = subprocess.Popen([agent_path, "-p" + default_pass])
     print("Process pid: " + str(process.pid))
     time.sleep(delay)
     process.kill()
 
-    print("-> " + threadName + ": pairing disabled")
+    print("-> " + threadname + ": pairing disabled")
 
     os.system("hciconfig hci0 pscan")
     pairing_running = 0
@@ -123,14 +128,14 @@ def remove_device(address):
 # MAIN
 #
 
-config = ConfigParser.ConfigParser()
+config = configparser.ConfigParser()
 
 if len(config.read(config_file)) != 1:
     print("not found")
     default_config = open(config_file, "w")
     default_config.write('[MAIN]\n')
     default_config.write('PASSWORD=' + default_pass + '\n')
-    default_config.close
+    default_config.close()
 else:
     print("found!")
     default_pass = config.get('MAIN', 'PASSWORD')
@@ -142,12 +147,10 @@ GPIO.setmode(GPIO.BOARD)
 # Commented as GPIO.setup close the circuit. Will use a workaround
 # GPIO.setup(7, GPIO.OUT)
 
-# workaround
-first_time = True
 
 server_sock = BluetoothSocket(RFCOMM)
 server_sock.bind(("", PORT_ANY))
-server_sock.listen(1)
+server_sock.listen(10)
 
 port = server_sock.getsockname()[1]
 
@@ -176,7 +179,7 @@ while True:
     client_sock, client_info = server_sock.accept()
     print("Accepted Bluetooth connection from ", client_info)
 
-    Thread(target=clientthread, args=(client_sock,)).start()
+    Thread(target=clientthread, args=(client_sock, client_info,)).start()
 
 print("disconnected")
 
