@@ -1,5 +1,8 @@
 import RPi.GPIO as GPIO
 import time
+import logger
+
+logger.init()
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)

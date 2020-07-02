@@ -1,12 +1,5 @@
 #!/usr/bin/python
 
-# Abraboxabra 2.0
-# Author: Pietro Di Vita (scognito@gmail.com)
-
-# 2.0 - 2015-08-06 - Added server commands for add/remove remotes, added config.ini file
-#                    Requires abraboxabra-agent.py
-# 1.0 - 2015-07-10 - Initial Release
-
 import time
 import RPi.GPIO as GPIO
 from bluetooth import *
@@ -14,6 +7,11 @@ from threading import *
 import subprocess
 import configparser
 import commands
+import logger
+
+
+logger.init()
+
 
 # SETTINGS
 pairing_running = 0
@@ -21,7 +19,7 @@ agent_path = '/home/pi/abra/abraboxabra-agent.py'
 test_device_path = '/usr/bin/bluez-test-device'
 
 # INI SECTION
-config_file = 'config.ini'
+config_file = '/home/pi/garage/config.ini'
 default_pass = '0000'
 
 
@@ -70,7 +68,7 @@ def clientthread(conn, cl_info):
                 # thread.start_new_thread( thread_pairing, ("Thread-1", 10, ) )
             """
         except IOError:
-            print("Disconnected from ", client_info)
+            print("Disconnected from ", cl_info)
             break
 
     # came out of loop
@@ -128,6 +126,8 @@ def remove_device(address):
 # MAIN
 #
 
+time.sleep(20)
+'''
 config = configparser.ConfigParser()
 
 if len(config.read(config_file)) != 1:
@@ -141,12 +141,7 @@ else:
     default_pass = config.get('MAIN', 'PASSWORD')
 
 print("inizio! password = " + default_pass)
-
-GPIO.setmode(GPIO.BOARD)
-
-# Commented as GPIO.setup close the circuit. Will use a workaround
-# GPIO.setup(7, GPIO.OUT)
-
+'''
 
 server_sock = BluetoothSocket(RFCOMM)
 server_sock.bind(("", PORT_ANY))
@@ -156,23 +151,13 @@ port = server_sock.getsockname()[1]
 
 uuid = "00001101-0000-1000-8000-00805f9b34fb"
 
-advertise_service(server_sock, "Abraboxabra server",
+advertise_service(server_sock, "Garage-pi",
                   service_id=uuid,
                   service_classes=[uuid, SERIAL_PORT_CLASS],
                   profiles=[SERIAL_PORT_PROFILE],
                   #                   protocols = [ OBEX_UUID ]
                   )
 
-# GPIO.output(11,True)
-
-
-# Create two threads as follows
-# try:
-#   thread.start_new_thread( thread_pairing, ("Thread-1", 60, ) )
-#
-# except:
-#   print "Error: unable to start thread"
-#
 print("Waiting for connection on RFCOMM channel %d" % port)
 
 while True:
@@ -183,9 +168,5 @@ while True:
 
 print("disconnected")
 
-time.sleep(1)
-GPIO.output(11, True)
-
 server_sock.close()
 print("all done")
-
