@@ -1,0 +1,19 @@
+02-07-20 21:00:33 - INFO - False
+02-07-20 21:00:33 - INFO - Setmode done!
+02-07-20 21:00:33 - INFO - Pin 11 sets to OUTPUT
+02-07-20 21:00:33 - INFO - Pin 13 sets to OUTPUT
+02-07-20 21:00:33 - INFO - Pin 15 sets to OUTPUT
+02-07-20 21:00:35 - INFO - found!
+02-07-20 21:00:35 - INFO - inizio! password = 000
+02-07-20 21:00:35 - INFO - Waiting for connection on RFCOMM channel 4
+02-07-20 21:00:55 - INFO - Accepted Bluetooth connection from
+02-07-20 21:00:55 - INFO - ('88:BF:E4:96:0F:98', 4)
+02-07-20 21:01:04 - INFO - received command 11;h;1 from ('88:BF:E4:96:0F:98', 4)
+02-07-20 21:01:04 - INFO - Pin 11 sets to True
+02-07-20 21:01:05 - INFO - Pin 11 sets to False
+02-07-20 21:01:07 - INFO - received command a1 from ('88:BF:E4:96:0F:98', 4)
+02-07-20 21:01:07 - INFO - !!! Wrong command !!!
+02-07-20 21:01:31 - INFO - received command  from ('88:BF:E4:96:0F:98', 4)
+02-07-20 21:01:31 - INFO - !!! Wrong command !!!
+02-07-20 21:01:31 - INFO - Disconnected from
+02-07-20 21:01:31 - INFO - ('88:BF:E4:96:0F:98', 4)
