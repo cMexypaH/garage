@@ -14,7 +14,7 @@ ROLE_RAW = 3
 ROLE_ADMIN = 4
 ROLE_OWNER = 5
 
-USERS_FILE = "users.txt"
+USERS_FILE = "/home/pi/garage/users.txt"
 
 RAW_COMMAND = 'raw'   # raw:11:h:3
 SIMPLE_COMMAND = 'c'         # c:openentrance:5

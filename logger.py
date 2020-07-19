@@ -26,7 +26,7 @@ def init():
         format='%(asctime)s - %(levelname)s - %(message)s',
         level=logging.DEBUG, datefmt='%d-%m-%y %H:%M:%S',
         handlers=[
-            logging.FileHandler("logs/main.txt"),
+            logging.FileHandler("/home/pi/garage/logs/main.txt"),
             logging.StreamHandler(sys.stdout)
         ]
     )

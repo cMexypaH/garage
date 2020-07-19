@@ -45,7 +45,7 @@ def clientthread(conn, cl_info):
 #
 # MAIN
 #
-time.sleep(1)
+time.sleep(20)
 
 server_sock = BluetoothSocket(RFCOMM)
 server_sock.bind(("", PORT_ANY))
