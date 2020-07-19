@@ -22,10 +22,8 @@ USER_NAME = 'u'       # u:username
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(11, GPIO.OUT)
-GPIO.setup(13, GPIO.OUT)
-GPIO.setup(15, GPIO.OUT)
-GPIO.setup(16, GPIO.OUT)
+pin_list = [11, 13, 15, 16]
+GPIO.setup(pin_list, GPIO.OUT)
 
 
 def command(recieved_data, user):
@@ -33,11 +31,12 @@ def command(recieved_data, user):
     try:
         parsed_data = recieved_data.split(':')
         type_command = parsed_data[0]
+        u_role = int(user.role)
 
         if user.name != user.mac:  # ako usera sushtestvuva
             if type_command == USER_NAME and user.name != parsed_data[1]:
                 rtrn = "ERROR:Cannot change username"
-            if type_command == RAW_COMMAND  and user.role >= ROLE_RAW:
+            if type_command == RAW_COMMAND and u_role >= ROLE_RAW:
                 parsed_command = parsed_data[1].split(';')
                 pin_number = int(parsed_command[0])
                 is_high = True
@@ -53,16 +52,16 @@ def command(recieved_data, user):
 
             elif type_command == SIMPLE_COMMAND:
                 command = parsed_data[1]
-                if command == "opengarage" and user.role >= ROLE_GARAGE:
+                if command == "opengarage" and u_role >= ROLE_GARAGE:
                     Thread(target=controlPins, args=(11, 1,)).start()
                     rtrn += "Garage is opening"
-                if command == "closegarage" and user.role >= ROLE_GARAGE:
+                if command == "closegarage" and u_role >= ROLE_GARAGE:
                     Thread(target=controlPins, args=(13, 1,)).start()
                     rtrn += "Garage is closing"
-                if command == "stopgarage" and user.role >= ROLE_GARAGE:
+                if command == "stopgarage" and u_role >= ROLE_GARAGE:
                     Thread(target=controlPins, args=(15, 1,)).start()
                     rtrn += "Garage is stopped"
-                if command == "openentrance" and user.role >= ROLE_ENTRANCE:
+                if command == "openentrance" and u_role >= ROLE_ENTRANCE:
                     timeentrance = int(parsed_data[2])
                     Thread(target=controlPins, args=(16, timeentrance,)).start()
                     rtrn += f"Entrance unlocked for {timeentrance} seconds"
@@ -73,8 +72,8 @@ def command(recieved_data, user):
                 user.name = rec_username
                 user.role = 0
                 print("User created")
-    except ValueError:
-        print("!!! Wrong command !!!")
+    except (ValueError, IndexError, Exception) as e:
+        print(e)
         return str.encode("!!! Wrong command !!!")
     return rtrn
 
@@ -97,5 +96,5 @@ def checkUser(mac):
                 return us
     return us
 
-# elif data == 'shutdown':
-#              os.system('shutdown now -h')
+# elif data == 'reboot':
+#              os.system('reboot')
