@@ -1,19 +1,384 @@
-02-07-20 21:00:33 - INFO - False
-02-07-20 21:00:33 - INFO - Setmode done!
-02-07-20 21:00:33 - INFO - Pin 11 sets to OUTPUT
-02-07-20 21:00:33 - INFO - Pin 13 sets to OUTPUT
-02-07-20 21:00:33 - INFO - Pin 15 sets to OUTPUT
-02-07-20 21:00:35 - INFO - found!
-02-07-20 21:00:35 - INFO - inizio! password = 000
-02-07-20 21:00:35 - INFO - Waiting for connection on RFCOMM channel 4
-02-07-20 21:00:55 - INFO - Accepted Bluetooth connection from
-02-07-20 21:00:55 - INFO - ('88:BF:E4:96:0F:98', 4)
-02-07-20 21:01:04 - INFO - received command 11;h;1 from ('88:BF:E4:96:0F:98', 4)
-02-07-20 21:01:04 - INFO - Pin 11 sets to True
-02-07-20 21:01:05 - INFO - Pin 11 sets to False
-02-07-20 21:01:07 - INFO - received command a1 from ('88:BF:E4:96:0F:98', 4)
-02-07-20 21:01:07 - INFO - !!! Wrong command !!!
-02-07-20 21:01:31 - INFO - received command  from ('88:BF:E4:96:0F:98', 4)
-02-07-20 21:01:31 - INFO - !!! Wrong command !!!
-02-07-20 21:01:31 - INFO - Disconnected from
-02-07-20 21:01:31 - INFO - ('88:BF:E4:96:0F:98', 4)
+19-07-20 14:12:52 - INFO - False
+19-07-20 14:12:52 - INFO - Setmode done!
+19-07-20 14:12:52 - INFO - Pin 11 sets to OUTPUT
+19-07-20 14:12:52 - INFO - Pin 13 sets to OUTPUT
+19-07-20 14:12:52 - INFO - Pin 15 sets to OUTPUT
+19-07-20 14:12:52 - INFO - Pin 16 sets to OUTPUT
+19-07-20 14:12:53 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 14:12:56 - ERROR - Traceback (most recent call last):
+19-07-20 14:12:56 - ERROR -   File "C:/Users/Vesko/PycharmProjects/garage/main.py", line 66, in <module>
+19-07-20 14:12:56 - ERROR - username = commands.checkUser(client_info[0])
+19-07-20 14:12:56 - ERROR -   File "C:\Users\Vesko\PycharmProjects\garage\commands.py", line 109, in checkUser
+19-07-20 14:12:56 - ERROR - if u[1] == mac:
+19-07-20 14:12:56 - ERROR - IndexError
+19-07-20 14:12:56 - ERROR - :
+19-07-20 14:12:56 - ERROR - list index out of range
+19-07-20 14:13:22 - INFO - False
+19-07-20 14:13:22 - INFO - Setmode done!
+19-07-20 14:13:22 - INFO - Pin 11 sets to OUTPUT
+19-07-20 14:13:22 - INFO - Pin 13 sets to OUTPUT
+19-07-20 14:13:22 - INFO - Pin 15 sets to OUTPUT
+19-07-20 14:13:22 - INFO - Pin 16 sets to OUTPUT
+19-07-20 14:13:23 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 14:13:46 - ERROR - Traceback (most recent call last):
+19-07-20 14:13:46 - ERROR -   File "C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1438, in _exec
+19-07-20 14:13:46 - ERROR - pydev_imports.execfile(file, globals, locals)  # execute the script
+19-07-20 14:13:46 - ERROR -   File "C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+19-07-20 14:13:46 - ERROR - exec(compile(contents+"\n", file, 'exec'), glob, loc)
+19-07-20 14:13:46 - ERROR -   File "C:/Users/Vesko/PycharmProjects/garage/main.py", line 66, in <module>
+19-07-20 14:13:46 - ERROR - username = commands.checkUser(client_info[0])
+19-07-20 14:13:46 - ERROR -   File "C:\Users\Vesko\PycharmProjects\garage\commands.py", line 109, in checkUser
+19-07-20 14:13:46 - ERROR - if u[1] == mac:
+19-07-20 14:13:46 - ERROR - IndexError
+19-07-20 14:13:46 - ERROR - :
+19-07-20 14:13:46 - ERROR - list index out of range
+19-07-20 14:14:05 - INFO - False
+19-07-20 14:14:05 - INFO - Setmode done!
+19-07-20 14:14:05 - INFO - Pin 11 sets to OUTPUT
+19-07-20 14:14:05 - INFO - Pin 13 sets to OUTPUT
+19-07-20 14:14:05 - INFO - Pin 15 sets to OUTPUT
+19-07-20 14:14:05 - INFO - Pin 16 sets to OUTPUT
+19-07-20 14:14:06 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 14:15:14 - ERROR - Traceback (most recent call last):
+19-07-20 14:15:14 - ERROR -   File "C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1438, in _exec
+19-07-20 14:15:14 - ERROR - pydev_imports.execfile(file, globals, locals)  # execute the script
+19-07-20 14:15:14 - ERROR -   File "C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+19-07-20 14:15:14 - ERROR - exec(compile(contents+"\n", file, 'exec'), glob, loc)
+19-07-20 14:15:14 - ERROR -   File "C:/Users/Vesko/PycharmProjects/garage/main.py", line 66, in <module>
+19-07-20 14:15:14 - ERROR - username = commands.checkUser(client_info[0])
+19-07-20 14:15:14 - ERROR -   File "C:\Users\Vesko\PycharmProjects\garage\commands.py", line 109, in checkUser
+19-07-20 14:15:14 - ERROR - if u[1] == mac:
+19-07-20 14:15:14 - ERROR - IndexError
+19-07-20 14:15:14 - ERROR - :
+19-07-20 14:15:14 - ERROR - list index out of range
+19-07-20 14:16:26 - INFO - False
+19-07-20 14:16:26 - INFO - Setmode done!
+19-07-20 14:16:26 - INFO - Pin 11 sets to OUTPUT
+19-07-20 14:16:26 - INFO - Pin 13 sets to OUTPUT
+19-07-20 14:16:26 - INFO - Pin 15 sets to OUTPUT
+19-07-20 14:16:26 - INFO - Pin 16 sets to OUTPUT
+19-07-20 14:16:27 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 14:16:39 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 14:16:45 - INFO - received command u:vesko3 from 88:BF:E4:96:0F:98
+19-07-20 14:17:00 - INFO - Disconnected from 88:BF:E4:96:0F:98
+19-07-20 14:17:10 - INFO - Accepted Bluetooth connection from vesko3
+19-07-20 14:17:15 - INFO - received command c:opengarage from vesko3
+19-07-20 14:17:17 - INFO - Pin 11 sets to True
+19-07-20 14:17:18 - INFO - Pin 11 sets to False
+19-07-20 14:17:35 - INFO - received command u:vesko from vesko3
+19-07-20 14:17:48 - INFO - Disconnected from vesko3
+19-07-20 14:17:51 - INFO - Accepted Bluetooth connection from vesko3
+19-07-20 14:27:05 - INFO - Disconnected from vesko3
+19-07-20 14:27:40 - INFO - Accepted Bluetooth connection from vesko3
+19-07-20 14:27:57 - INFO - False
+19-07-20 14:27:57 - INFO - Setmode done!
+19-07-20 14:27:57 - INFO - Pin 11 sets to OUTPUT
+19-07-20 14:27:57 - INFO - Pin 13 sets to OUTPUT
+19-07-20 14:27:57 - INFO - Pin 15 sets to OUTPUT
+19-07-20 14:27:57 - INFO - Pin 16 sets to OUTPUT
+19-07-20 14:27:58 - INFO - Waiting for connection on RFCOMM channel 5
+19-07-20 14:28:08 - INFO - Accepted Bluetooth connection from ('88:BF:E4:96:0F:98', 5)
+19-07-20 14:28:11 - INFO - received command c:opengarage from vesko3
+19-07-20 14:28:11 - INFO - Pin 11 sets to True
+19-07-20 14:28:12 - INFO - Pin 11 sets to False
+19-07-20 14:29:51 - INFO - False
+19-07-20 14:29:51 - INFO - Setmode done!
+19-07-20 14:29:51 - INFO - Pin 11 sets to OUTPUT
+19-07-20 14:29:51 - INFO - Pin 13 sets to OUTPUT
+19-07-20 14:29:51 - INFO - Pin 15 sets to OUTPUT
+19-07-20 14:29:51 - INFO - Pin 16 sets to OUTPUT
+19-07-20 14:29:52 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 14:29:54 - INFO - Accepted Bluetooth connection from ('88:BF:E4:96:0F:98', 4)
+19-07-20 14:29:54 - INFO - 88:BF:E4:96:0F:98 is vesko3
+19-07-20 14:30:13 - INFO - Disconnected from vesko3
+19-07-20 14:30:14 - INFO - Accepted Bluetooth connection from ('88:BF:E4:96:0F:98', 4)
+19-07-20 14:30:14 - INFO - 88:BF:E4:96:0F:98 is 88:BF:E4:96:0F:98
+19-07-20 14:30:17 - INFO - received command u:vesko from 88:BF:E4:96:0F:98
+19-07-20 14:30:21 - INFO - received command c:opengarage from 88:BF:E4:96:0F:98
+19-07-20 14:30:21 - INFO - Pin 11 sets to True
+19-07-20 14:30:22 - INFO - Pin 11 sets to False
+19-07-20 14:30:26 - INFO - received command c:opengarage from 88:BF:E4:96:0F:98
+19-07-20 14:30:26 - INFO - Pin 11 sets to True
+19-07-20 14:30:27 - INFO - Pin 11 sets to False
+19-07-20 14:30:29 - INFO - received command raw:11;h;1 from 88:BF:E4:96:0F:98
+19-07-20 14:30:29 - INFO - Pin 11 sets to True
+19-07-20 14:30:30 - INFO - Pin 11 sets to False
+19-07-20 14:31:26 - INFO - False
+19-07-20 14:31:26 - INFO - Setmode done!
+19-07-20 14:31:26 - INFO - Pin 11 sets to OUTPUT
+19-07-20 14:31:26 - INFO - Pin 13 sets to OUTPUT
+19-07-20 14:31:26 - INFO - Pin 15 sets to OUTPUT
+19-07-20 14:31:26 - INFO - Pin 16 sets to OUTPUT
+19-07-20 14:31:27 - INFO - Waiting for connection on RFCOMM channel 5
+19-07-20 14:31:41 - INFO - Accepted Bluetooth connection from ('88:BF:E4:96:0F:98', 5)
+19-07-20 14:31:41 - ERROR - Exception in thread Thread-1:
+19-07-20 14:31:41 - ERROR - Traceback (most recent call last):
+19-07-20 14:31:41 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 917, in _bootstrap_inner
+19-07-20 14:31:41 - ERROR -     self.run()
+19-07-20 14:31:41 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 865, in run
+19-07-20 14:31:41 - ERROR -     self._target(*self._args, **self._kwargs)
+19-07-20 14:31:41 - ERROR -   File "C:/Users/Vesko/PycharmProjects/garage/main.py", line 20, in clientthread
+19-07-20 14:31:41 - ERROR -     print(f"{cl_info[0]} is {username}")
+19-07-20 14:31:41 - ERROR - NameError: name 'username' is not defined
+19-07-20 14:49:35 - INFO - False
+19-07-20 14:49:35 - INFO - Setmode done!
+19-07-20 14:49:35 - INFO - Pin 11 sets to OUTPUT
+19-07-20 14:49:35 - INFO - Pin 13 sets to OUTPUT
+19-07-20 14:49:35 - INFO - Pin 15 sets to OUTPUT
+19-07-20 14:49:35 - INFO - Pin 16 sets to OUTPUT
+19-07-20 14:49:36 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 14:49:38 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 14:49:38 - INFO - 88:BF:E4:96:0F:98 is 88:BF:E4:96:0F:98
+19-07-20 14:49:44 - INFO - received command u:vesko from 88:BF:E4:96:0F:98
+19-07-20 14:50:13 - INFO - False
+19-07-20 14:50:13 - INFO - Setmode done!
+19-07-20 14:50:13 - INFO - Pin 11 sets to OUTPUT
+19-07-20 14:50:13 - INFO - Pin 13 sets to OUTPUT
+19-07-20 14:50:13 - INFO - Pin 15 sets to OUTPUT
+19-07-20 14:50:13 - INFO - Pin 16 sets to OUTPUT
+19-07-20 14:50:14 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 14:50:20 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 14:50:20 - INFO - 88:BF:E4:96:0F:98 is 88:BF:E4:96:0F:98
+19-07-20 14:50:22 - INFO - received command u:vesko from vesko
+19-07-20 14:50:26 - INFO - received command c:opengarage from vesko
+19-07-20 14:50:26 - INFO - Pin 11 sets to True
+19-07-20 14:50:27 - INFO - Pin 11 sets to False
+19-07-20 14:50:29 - ERROR - Exception in thread Thread-1:
+19-07-20 14:50:29 - ERROR - Traceback (most recent call last):
+19-07-20 14:50:29 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 917, in _bootstrap_inner
+19-07-20 14:50:29 - ERROR -     self.run()
+19-07-20 14:50:29 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 865, in run
+19-07-20 14:50:29 - ERROR -     self._target(*self._args, **self._kwargs)
+19-07-20 14:50:29 - ERROR -   File "C:/Users/Vesko/PycharmProjects/garage/main.py", line 40, in clientthread
+19-07-20 14:50:29 - ERROR -     print(f"Disconnected from {username}")
+19-07-20 14:50:29 - ERROR - NameError: name 'username' is not defined
+19-07-20 14:50:38 - INFO - False
+19-07-20 14:50:38 - INFO - Setmode done!
+19-07-20 14:50:38 - INFO - Pin 11 sets to OUTPUT
+19-07-20 14:50:38 - INFO - Pin 13 sets to OUTPUT
+19-07-20 14:50:38 - INFO - Pin 15 sets to OUTPUT
+19-07-20 14:50:38 - INFO - Pin 16 sets to OUTPUT
+19-07-20 14:50:39 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 14:50:43 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 14:50:43 - INFO - 88:BF:E4:96:0F:98 is 88:BF:E4:96:0F:98
+19-07-20 14:50:45 - INFO - received command u:vesko from vesko
+19-07-20 14:50:48 - INFO - received command c:opengarage from vesko
+19-07-20 14:50:48 - INFO - Pin 11 sets to True
+19-07-20 14:50:49 - INFO - Pin 11 sets to False
+19-07-20 14:50:51 - INFO - Disconnected from vesko
+19-07-20 14:50:52 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 14:50:52 - INFO - 88:BF:E4:96:0F:98 is 88:BF:E4:96:0F:98
+19-07-20 14:50:54 - INFO - received command c:opengarage from vesko
+19-07-20 14:50:54 - INFO - Pin 11 sets to True
+19-07-20 14:50:55 - INFO - Pin 11 sets to False
+19-07-20 14:51:16 - INFO - False
+19-07-20 14:51:16 - INFO - Setmode done!
+19-07-20 14:51:16 - INFO - Pin 11 sets to OUTPUT
+19-07-20 14:51:16 - INFO - Pin 13 sets to OUTPUT
+19-07-20 14:51:16 - INFO - Pin 15 sets to OUTPUT
+19-07-20 14:51:16 - INFO - Pin 16 sets to OUTPUT
+19-07-20 14:51:17 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 14:51:18 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 14:51:18 - INFO - 88:BF:E4:96:0F:98 is vesko
+19-07-20 14:51:21 - INFO - received command c:opengarage from vesko
+19-07-20 14:51:21 - INFO - Pin 11 sets to True
+19-07-20 14:51:22 - INFO - Pin 11 sets to False
+19-07-20 14:51:31 - INFO - False
+19-07-20 14:51:31 - INFO - Setmode done!
+19-07-20 14:51:31 - INFO - Pin 11 sets to OUTPUT
+19-07-20 14:51:31 - INFO - Pin 13 sets to OUTPUT
+19-07-20 14:51:31 - INFO - Pin 15 sets to OUTPUT
+19-07-20 14:51:31 - INFO - Pin 16 sets to OUTPUT
+19-07-20 14:51:32 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 14:51:33 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 14:51:33 - INFO - 88:BF:E4:96:0F:98 is 88:BF:E4:96:0F:98
+19-07-20 14:51:36 - INFO - received command c:opengarage from 88:BF:E4:96:0F:98
+19-07-20 14:51:36 - INFO - Pin 11 sets to True
+19-07-20 14:51:37 - INFO - Pin 11 sets to False
+19-07-20 14:51:38 - INFO - received command u:vesko from 88:BF:E4:96:0F:98
+19-07-20 14:51:44 - INFO - received command c:opengarage from 88:BF:E4:96:0F:98
+19-07-20 14:51:44 - INFO - Pin 11 sets to True
+19-07-20 14:51:45 - INFO - Pin 11 sets to False
+19-07-20 14:52:04 - INFO - False
+19-07-20 14:52:04 - INFO - Setmode done!
+19-07-20 14:52:04 - INFO - Pin 11 sets to OUTPUT
+19-07-20 14:52:04 - INFO - Pin 13 sets to OUTPUT
+19-07-20 14:52:04 - INFO - Pin 15 sets to OUTPUT
+19-07-20 14:52:04 - INFO - Pin 16 sets to OUTPUT
+19-07-20 14:52:05 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 14:52:07 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 14:52:07 - INFO - 88:BF:E4:96:0F:98 is vesko
+19-07-20 14:52:09 - INFO - received command c:opengarage from vesko
+19-07-20 14:52:09 - INFO - Pin 11 sets to True
+19-07-20 14:52:10 - INFO - Pin 11 sets to False
+19-07-20 14:52:19 - INFO - Disconnected from 88:BF:E4:96:0F:98
+19-07-20 14:52:23 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 14:52:23 - INFO - 88:BF:E4:96:0F:98 is 88:BF:E4:96:0F:98
+19-07-20 14:52:26 - INFO - received command c:opengarage from 88:BF:E4:96:0F:98
+19-07-20 14:52:26 - INFO - Pin 11 sets to True
+19-07-20 14:52:27 - INFO - Pin 11 sets to False
+19-07-20 14:52:28 - INFO - received command u:vesko from 88:BF:E4:96:0F:98
+19-07-20 14:52:31 - INFO - received command c:opengarage from vesko
+19-07-20 14:52:31 - INFO - Pin 11 sets to True
+19-07-20 14:52:32 - INFO - Pin 11 sets to False
+19-07-20 15:02:45 - INFO - False
+19-07-20 15:02:45 - INFO - Setmode done!
+19-07-20 15:02:45 - INFO - Pin 11 sets to OUTPUT
+19-07-20 15:02:45 - INFO - Pin 13 sets to OUTPUT
+19-07-20 15:02:45 - INFO - Pin 15 sets to OUTPUT
+19-07-20 15:02:45 - INFO - Pin 16 sets to OUTPUT
+19-07-20 15:02:46 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 15:02:49 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 15:02:49 - INFO - 88:BF:E4:96:0F:98 is vesko
+19-07-20 15:02:51 - INFO - received command u:vesko from vesko
+19-07-20 15:03:06 - INFO - Disconnected from 88:BF:E4:96:0F:98
+19-07-20 15:03:09 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 15:03:09 - INFO - 88:BF:E4:96:0F:98 is 88:BF:E4:96:0F:98
+19-07-20 15:03:12 - INFO - received command u:vesko from 88:BF:E4:96:0F:98
+19-07-20 15:03:12 - INFO - User created
+19-07-20 15:03:21 - INFO - received command c:opengarage from vesko
+19-07-20 15:03:21 - INFO - Pin 11 sets to True
+19-07-20 15:03:22 - INFO - Pin 11 sets to False
+19-07-20 15:03:42 - INFO - received command c:opengarage from vesko
+19-07-20 15:03:42 - INFO - Pin 11 sets to True
+19-07-20 15:03:43 - INFO - Pin 11 sets to False
+19-07-20 15:03:44 - INFO - received command u:vesko2 from vesko
+19-07-20 15:03:47 - INFO - received command c:opengarage from vesko
+19-07-20 15:03:47 - INFO - Pin 11 sets to True
+19-07-20 15:03:48 - INFO - Pin 11 sets to False
+19-07-20 15:03:54 - INFO - Disconnected from vesko
+19-07-20 15:04:21 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 15:04:21 - INFO - 88:BF:E4:96:0F:98 is vesko
+19-07-20 15:04:26 - INFO - received command u:vesko2 from vesko
+19-07-20 15:04:30 - INFO - False
+19-07-20 15:04:30 - INFO - Setmode done!
+19-07-20 15:04:30 - INFO - Pin 11 sets to OUTPUT
+19-07-20 15:04:30 - INFO - Pin 13 sets to OUTPUT
+19-07-20 15:04:30 - INFO - Pin 15 sets to OUTPUT
+19-07-20 15:04:30 - INFO - Pin 16 sets to OUTPUT
+19-07-20 15:04:31 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 15:04:32 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 15:04:32 - INFO - 88:BF:E4:96:0F:98 is vesko
+19-07-20 15:04:33 - INFO - received command u:vesko2 from vesko
+19-07-20 15:04:43 - INFO - received command u:vesko2 from vesko
+19-07-20 15:07:59 - INFO - False
+19-07-20 15:07:59 - INFO - Setmode done!
+19-07-20 15:07:59 - INFO - Pin 11 sets to OUTPUT
+19-07-20 15:07:59 - INFO - Pin 13 sets to OUTPUT
+19-07-20 15:07:59 - INFO - Pin 15 sets to OUTPUT
+19-07-20 15:07:59 - INFO - Pin 16 sets to OUTPUT
+19-07-20 15:08:00 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 15:08:08 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 15:08:09 - INFO - 88:BF:E4:96:0F:98 is vesko
+19-07-20 15:08:10 - INFO - received command u:vesko2 from vesko
+19-07-20 15:08:26 - INFO - received command u:vesko from vesko
+19-07-20 15:09:45 - INFO - False
+19-07-20 15:09:45 - INFO - Setmode done!
+19-07-20 15:09:45 - INFO - Pin 11 sets to OUTPUT
+19-07-20 15:09:45 - INFO - Pin 13 sets to OUTPUT
+19-07-20 15:09:45 - INFO - Pin 15 sets to OUTPUT
+19-07-20 15:09:45 - INFO - Pin 16 sets to OUTPUT
+19-07-20 15:09:47 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 15:09:49 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 15:09:49 - INFO - 88:BF:E4:96:0F:98 is vesko
+19-07-20 15:09:50 - INFO - received command u:vesko from vesko
+19-07-20 15:10:06 - INFO - received command u:vesko1 from vesko
+19-07-20 15:10:20 - INFO - received command u:vesko from vesko
+19-07-20 15:10:28 - INFO - Disconnected from vesko
+19-07-20 15:42:42 - INFO - False
+19-07-20 15:42:42 - INFO - Setmode done!
+19-07-20 15:42:42 - INFO - Pin 11 sets to OUTPUT
+19-07-20 15:42:42 - INFO - Pin 13 sets to OUTPUT
+19-07-20 15:42:42 - INFO - Pin 15 sets to OUTPUT
+19-07-20 15:42:42 - INFO - Pin 16 sets to OUTPUT
+19-07-20 15:42:43 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 15:42:54 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 15:42:54 - ERROR - Exception in thread Thread-1:
+19-07-20 15:42:54 - ERROR - Traceback (most recent call last):
+19-07-20 15:42:54 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 917, in _bootstrap_inner
+19-07-20 15:42:54 - ERROR -     self.run()
+19-07-20 15:42:54 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 865, in run
+19-07-20 15:42:54 - ERROR -     self._target(*self._args, **self._kwargs)
+19-07-20 15:42:54 - ERROR -   File "C:/Users/Vesko/PycharmProjects/garage/main.py", line 20, in clientthread
+19-07-20 15:42:54 - ERROR -     user = commands.checkUser(cl_info[0])
+19-07-20 15:42:54 - ERROR -   File "C:\Users\Vesko\PycharmProjects\garage\commands.py", line 93, in checkUser
+19-07-20 15:42:54 - ERROR -     user.name = u[0]
+19-07-20 15:42:54 - ERROR - AttributeError: 'str' object has no attribute 'name'
+19-07-20 15:44:01 - INFO - False
+19-07-20 15:44:01 - INFO - Setmode done!
+19-07-20 15:44:01 - INFO - Pin 11 sets to OUTPUT
+19-07-20 15:44:01 - INFO - Pin 13 sets to OUTPUT
+19-07-20 15:44:01 - INFO - Pin 15 sets to OUTPUT
+19-07-20 15:44:01 - INFO - Pin 16 sets to OUTPUT
+19-07-20 15:44:02 - INFO - Waiting for connection on RFCOMM channel 5
+19-07-20 15:44:04 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 15:44:04 - ERROR - Exception in thread Thread-1:
+19-07-20 15:44:04 - ERROR - Traceback (most recent call last):
+19-07-20 15:44:04 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 917, in _bootstrap_inner
+19-07-20 15:44:04 - ERROR -     self.run()
+19-07-20 15:44:04 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 865, in run
+19-07-20 15:44:04 - ERROR -     self._target(*self._args, **self._kwargs)
+19-07-20 15:44:04 - ERROR -   File "C:/Users/Vesko/PycharmProjects/garage/main.py", line 20, in clientthread
+19-07-20 15:44:04 - ERROR -     user = commands.checkUser(cl_info[0])
+19-07-20 15:44:04 - ERROR -   File "C:\Users\Vesko\PycharmProjects\garage\commands.py", line 93, in checkUser
+19-07-20 15:44:04 - ERROR -     user.name = u[0]
+19-07-20 15:44:04 - ERROR - AttributeError: 'str' object has no attribute 'name'
+19-07-20 15:44:18 - INFO - False
+19-07-20 15:44:18 - INFO - Setmode done!
+19-07-20 15:44:18 - INFO - Pin 11 sets to OUTPUT
+19-07-20 15:44:18 - INFO - Pin 13 sets to OUTPUT
+19-07-20 15:44:18 - INFO - Pin 15 sets to OUTPUT
+19-07-20 15:44:18 - INFO - Pin 16 sets to OUTPUT
+19-07-20 15:44:19 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 15:44:19 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 15:44:19 - ERROR - Exception in thread Thread-1:
+19-07-20 15:44:19 - ERROR - Traceback (most recent call last):
+19-07-20 15:44:19 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 917, in _bootstrap_inner
+19-07-20 15:44:19 - ERROR -     self.run()
+19-07-20 15:44:19 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 865, in run
+19-07-20 15:44:19 - ERROR -     self._target(*self._args, **self._kwargs)
+19-07-20 15:44:19 - ERROR -   File "C:/Users/Vesko/PycharmProjects/garage/main.py", line 20, in clientthread
+19-07-20 15:44:19 - ERROR -     user = commands.checkUser(cl_info[0])
+19-07-20 15:44:19 - ERROR -   File "C:\Users\Vesko\PycharmProjects\garage\commands.py", line 93, in checkUser
+19-07-20 15:44:19 - ERROR -     user.set_name = u[0]
+19-07-20 15:44:19 - ERROR - AttributeError: 'str' object has no attribute 'set_name'
+19-07-20 15:44:39 - INFO - False
+19-07-20 15:44:39 - INFO - Setmode done!
+19-07-20 15:44:39 - INFO - Pin 11 sets to OUTPUT
+19-07-20 15:44:39 - INFO - Pin 13 sets to OUTPUT
+19-07-20 15:44:39 - INFO - Pin 15 sets to OUTPUT
+19-07-20 15:44:39 - INFO - Pin 16 sets to OUTPUT
+19-07-20 15:44:40 - INFO - Waiting for connection on RFCOMM channel 4
+19-07-20 15:44:42 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 15:44:42 - ERROR - Exception in thread Thread-1:
+19-07-20 15:44:42 - ERROR - Traceback (most recent call last):
+19-07-20 15:44:42 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 917, in _bootstrap_inner
+19-07-20 15:44:42 - ERROR -     self.run()
+19-07-20 15:44:42 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 865, in run
+19-07-20 15:44:42 - ERROR -     self._target(*self._args, **self._kwargs)
+19-07-20 15:44:42 - ERROR -   File "C:/Users/Vesko/PycharmProjects/garage/main.py", line 20, in clientthread
+19-07-20 15:44:42 - ERROR -     user = commands.checkUser(cl_info[0])
+19-07-20 15:44:42 - ERROR -   File "C:\Users\Vesko\PycharmProjects\garage\commands.py", line 93, in checkUser
+19-07-20 15:44:42 - ERROR -     user.set_name(u[0])
+19-07-20 15:44:42 - ERROR - AttributeError: 'str' object has no attribute 'set_name'
+19-07-20 15:45:49 - INFO - False
+19-07-20 15:45:49 - INFO - Setmode done!
+19-07-20 15:45:49 - INFO - Pin 11 sets to OUTPUT
+19-07-20 15:45:49 - INFO - Pin 13 sets to OUTPUT
+19-07-20 15:45:49 - INFO - Pin 15 sets to OUTPUT
+19-07-20 15:45:49 - INFO - Pin 16 sets to OUTPUT
+19-07-20 15:45:50 - INFO - Waiting for connection on RFCOMM channel 5
+19-07-20 15:45:52 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 15:45:52 - INFO - 88:BF:E4:96:0F:98 is vesko
+19-07-20 15:45:55 - INFO - received command c:opengarage from vesko
+19-07-20 15:45:55 - INFO - Pin 11 sets to True
+19-07-20 15:45:56 - INFO - Pin 11 sets to False
+19-07-20 15:45:57 - INFO - received command u:vesko from vesko
+19-07-20 15:46:07 - INFO - Disconnected from 88:BF:E4:96:0F:98
+19-07-20 15:46:08 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+19-07-20 15:46:08 - INFO - 88:BF:E4:96:0F:98 is 88:BF:E4:96:0F:98
+19-07-20 15:46:11 - INFO - received command u:vesko from 88:BF:E4:96:0F:98
+19-07-20 15:46:11 - INFO - User created
+19-07-20 15:46:13 - INFO - received command c:opengarage from vesko
+19-07-20 15:46:13 - INFO - Pin 11 sets to True
+19-07-20 15:46:14 - INFO - Pin 11 sets to False

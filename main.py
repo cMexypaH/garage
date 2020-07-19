@@ -8,144 +8,48 @@ import subprocess
 import configparser
 import commands
 import logger
-
+from classes import Users
 
 logger.init()
-
-
-# SETTINGS
-pairing_running = 0
-agent_path = '/home/pi/abra/abraboxabra-agent.py'
-test_device_path = '/usr/bin/bluez-test-device'
-
-# INI SECTION
-config_file = '/home/pi/garage/config.ini'
-default_pass = '0000'
 
 
 # Function for handling connections. This will be used to create threads
 def clientthread(conn, cl_info):
     # infinite loop so that function do not terminate and thread do not end.
+    countfordc = 0
+    user = commands.checkUser(cl_info[0])
+    print(f"{cl_info[0]} is {user.name}")
     while True:
         try:
+            user = commands.checkUser(cl_info[0])
             # Receiving from client
             data = conn.recv(1024)
             data = data.decode('utf_8')
             data = data.lower()
-
-            print(f"received command {data} from {cl_info}")
-
-            # client_sock.send('received message ' + data);
-
-            dt = commands.command(data)
-
-            conn.send(dt)
-
-            """
-            if data == 'openclose':
-                if first_time:
-                    GPIO.setup(11, GPIO.OUT)
-                    first_time = False
-
-                GPIO.output(11, False)
-                time.sleep(1.4)
-                GPIO.output(11, True)
-            elif data == 'shutdown':
-                os.system('shutdown now -h')
-            elif data == 'device_list':
-                client_sock.send(get_paired_devices())
-            elif data.startswith('remove_device'):
-                remove_device(data[14:])
-            elif data == 'enable_pairing':
-                if pairing_running == 0:
-                    print("Enabling pairing")
-                    try:
-                        Thread(target=thread_pairing, args=("Thread-1", 60,)).start()
-                    except:
-                        print("Error: unable to start thread")
-                else:
-                    print("Pairing in progress. Not starting new thread")
-                # thread.start_new_thread( thread_pairing, ("Thread-1", 10, ) )
-            """
+            if data == '':
+                countfordc += 1
+            else:
+                print(f"received command {data} from {user.name}")
+                dt = commands.command(data, user)
+                conn.send(dt)
+            if countfordc > 10:
+                break
         except IOError:
-            print("Disconnected from ", cl_info)
             break
 
     # came out of loop
+    print(f"Disconnected from {user.name}")
     conn.close()
-
-
-def thread_pairing(threadname, delay):
-    print("Thread " + threadname + "  started")
-    global pairing_running
-
-    pairing_running = 1
-
-    os.system("hciconfig hci0 piscan")
-    process = subprocess.Popen([agent_path, "-p" + default_pass])
-    print("Process pid: " + str(process.pid))
-    time.sleep(delay)
-    process.kill()
-
-    print("-> " + threadname + ": pairing disabled")
-
-    os.system("hciconfig hci0 pscan")
-    pairing_running = 0
-
-
-def get_paired_devices():
-    print("Executing " + test_device_path + " list")
-    device_list_output = subprocess.check_output(test_device_path + " list", shell=True)
-
-    device_list = device_list_output.split('\n')
-    list_len = len(device_list) - 1
-    result = ""
-    i = 0
-    for device in device_list:
-        if i == list_len:
-            break
-        if i == list_len - 1:
-            result = result + device
-        else:
-            result = result + device + "<-->"
-        i = i + 1
-
-    if i == 0:
-        result = "none"
-
-    print(result)
-    return result
-
-
-def remove_device(address):
-    print("Eseguo " + test_device_path + " remove " + address)
-    process = subprocess.Popen([test_device_path, "remove", address])
 
 
 #
 # MAIN
 #
-
-time.sleep(20)
-'''
-config = configparser.ConfigParser()
-
-if len(config.read(config_file)) != 1:
-    print("not found")
-    default_config = open(config_file, "w")
-    default_config.write('[MAIN]\n')
-    default_config.write('PASSWORD=' + default_pass + '\n')
-    default_config.close()
-else:
-    print("found!")
-    default_pass = config.get('MAIN', 'PASSWORD')
-
-print("inizio! password = " + default_pass)
-'''
+time.sleep(1)
 
 server_sock = BluetoothSocket(RFCOMM)
 server_sock.bind(("", PORT_ANY))
-server_sock.listen(10)
+server_sock.listen(1)
 
 port = server_sock.getsockname()[1]
 
@@ -162,11 +66,11 @@ print("Waiting for connection on RFCOMM channel %d" % port)
 
 while True:
     client_sock, client_info = server_sock.accept()
-    print("Accepted Bluetooth connection from ", client_info)
+    user = Users(client_info[0])
+    print(f"Accepted Bluetooth connection from {user.mac}")
 
     Thread(target=clientthread, args=(client_sock, client_info,)).start()
 
 print("disconnected")
-
 server_sock.close()
 print("all done")
