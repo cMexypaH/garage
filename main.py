@@ -12,25 +12,29 @@ from classes import Users
 
 logger.init()
 
+global user_good
 
 # Function for handling connections. This will be used to create threads
 def clientthread(conn, cl_info):
     # infinite loop so that function do not terminate and thread do not end.
     countfordc = 0
-    user = commands.checkUser(cl_info[0])
-    print(f"{cl_info[0]} is {user.name}")
+    macaddr = cl_info[0].lower()
+    user = commands.checkUserMac(macaddr)
+    print(f"{macaddr} is {user.name}")
     while True:
         try:
-            user = commands.checkUser(cl_info[0])
+            user = commands.checkUserMac(macaddr)
             # Receiving from client
             data = conn.recv(1024)
             data = data.decode('utf_8')
             data = data.lower()
+            data = data.strip()
             if data == '':
                 countfordc += 1
             else:
-                print(f"received command {data} from {user.name}")
+                print(f"Received: {data} from {user.name}")
                 dt = commands.command(data, user)
+                print(dt)
                 conn.send(dt)
             if countfordc > 10:
                 break
@@ -38,7 +42,7 @@ def clientthread(conn, cl_info):
             break
 
     # came out of loop
-    print(f"Disconnected from {user.name}")
+    print(f"{user.name} lost connection: Disconnected")
     conn.close()
 
 
