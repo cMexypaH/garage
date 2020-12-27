@@ -8,7 +8,12 @@ def read(fName):
 
 def write(fName, username, mac, role):
     with open(fName, 'a') as a_writer:
-        a_writer.write(username + ';' + mac + ';' + role + '\n')
+        a_writer.write(f'\n{username}')
+        a_writer.write(';')
+        a_writer.write(mac)
+        a_writer.write(';')
+        a_writer.write(role)
+#        a_writer.write(username + ';' + mac + ';' + role + '\n')
 
 
 def writeall(fName, data):
