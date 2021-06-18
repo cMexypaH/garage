@@ -14,6 +14,7 @@ logger.init()
 
 global user_good
 
+
 # Function for handling connections. This will be used to create threads
 def clientthread(conn, cl_info):
     # infinite loop so that function do not terminate and thread do not end.

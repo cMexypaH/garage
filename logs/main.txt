@@ -1165,3 +1165,98 @@
 13-12-20 20:23:46 - INFO - ERROR:Cannot change username
 13-12-20 20:23:49 - INFO - Received: c:openentrance:10 from vesko
 13-12-20 20:24:22 - INFO - Wrong command!
+29-12-20 19:22:12 - INFO - False
+29-12-20 19:22:12 - INFO - Setmode done!
+29-12-20 19:22:12 - INFO - Pin [11, 13, 15, 16] sets to OUTPUT
+29-12-20 19:22:32 - INFO - Waiting for connection on RFCOMM channel 4
+29-12-20 19:23:14 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+29-12-20 19:23:14 - INFO - 88:bf:e4:96:0f:98 is vesko
+29-12-20 19:23:22 - INFO - Received: u:asd from vesko
+29-12-20 19:23:22 - INFO - ERROR:Cannot change username
+29-12-20 19:24:08 - INFO - False
+29-12-20 19:24:08 - INFO - Setmode done!
+29-12-20 19:24:08 - INFO - Pin [11, 13, 15, 16] sets to OUTPUT
+29-12-20 19:24:28 - INFO - Waiting for connection on RFCOMM channel 4
+29-12-20 19:24:30 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+29-12-20 19:24:30 - INFO - 88:bf:e4:96:0f:98 is 88:bf:e4:96:0f:98
+29-12-20 19:24:31 - INFO - Received: u:asd from 88:bf:e4:96:0f:98
+29-12-20 19:24:31 - INFO - User created
+29-12-20 19:24:31 - ERROR - Exception in thread Thread-1:
+29-12-20 19:24:31 - ERROR - Traceback (most recent call last):
+29-12-20 19:24:31 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 917, in _bootstrap_inner
+29-12-20 19:24:31 - ERROR -     self.run()
+29-12-20 19:24:31 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 865, in run
+29-12-20 19:24:31 - ERROR -     self._target(*self._args, **self._kwargs)
+29-12-20 19:24:31 - ERROR -   File "C:/Users/Vesko/PycharmProjects/garage/main.py", line 26, in clientthread
+29-12-20 19:24:31 - ERROR -     user = commands.checkUserMac(macaddr)
+29-12-20 19:24:31 - ERROR -   File "C:\Users\Vesko\PycharmProjects\garage\commands.py", line 115, in checkUserMac
+29-12-20 19:24:31 - ERROR -     if u[1] == mac:
+29-12-20 19:24:31 - ERROR - IndexError: list index out of range
+29-12-20 19:24:42 - INFO - False
+29-12-20 19:24:42 - INFO - Setmode done!
+29-12-20 19:24:42 - INFO - Pin [11, 13, 15, 16] sets to OUTPUT
+29-12-20 19:25:02 - INFO - Waiting for connection on RFCOMM channel 4
+29-12-20 19:25:06 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+29-12-20 19:25:23 - ERROR - Traceback (most recent call last):
+29-12-20 19:25:23 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 865, in run
+29-12-20 19:25:23 - ERROR - self._target(*self._args, **self._kwargs)
+29-12-20 19:25:23 - ERROR -   File "C:/Users/Vesko/PycharmProjects/garage/main.py", line 22, in clientthread
+29-12-20 19:25:23 - ERROR - user = commands.checkUserMac(macaddr)
+29-12-20 19:25:23 - ERROR -   File "C:\Users\Vesko\PycharmProjects\garage\commands.py", line 115, in checkUserMac
+29-12-20 19:25:23 - ERROR - if u[1] == mac:
+29-12-20 19:25:23 - ERROR - IndexError
+29-12-20 19:25:23 - ERROR - :
+29-12-20 19:25:23 - ERROR - list index out of range
+29-12-20 19:25:23 - ERROR - Exception in thread Thread-6:
+29-12-20 19:25:23 - ERROR - Traceback (most recent call last):
+29-12-20 19:25:23 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 917, in _bootstrap_inner
+29-12-20 19:25:23 - ERROR -     self.run()
+29-12-20 19:25:23 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 865, in run
+29-12-20 19:25:23 - ERROR -     self._target(*self._args, **self._kwargs)
+29-12-20 19:25:23 - ERROR -   File "C:/Users/Vesko/PycharmProjects/garage/main.py", line 22, in clientthread
+29-12-20 19:25:23 - ERROR -     user = commands.checkUserMac(macaddr)
+29-12-20 19:25:23 - ERROR -   File "C:\Users\Vesko\PycharmProjects\garage\commands.py", line 115, in checkUserMac
+29-12-20 19:25:23 - ERROR -     if u[1] == mac:
+29-12-20 19:25:23 - ERROR - IndexError: list index out of range
+29-12-20 19:26:15 - INFO - False
+29-12-20 19:26:15 - INFO - Setmode done!
+29-12-20 19:26:15 - INFO - Pin [11, 13, 15, 16] sets to OUTPUT
+29-12-20 19:26:35 - INFO - Waiting for connection on RFCOMM channel 4
+29-12-20 19:26:41 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+29-12-20 19:26:44 - INFO - False
+29-12-20 19:26:44 - INFO - Setmode done!
+29-12-20 19:26:44 - INFO - Pin [11, 13, 15, 16] sets to OUTPUT
+29-12-20 19:27:04 - INFO - Waiting for connection on RFCOMM channel 4
+29-12-20 19:27:08 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+29-12-20 19:27:41 - INFO - 88:bf:e4:96:0f:98 is 88:bf:e4:96:0f:98
+29-12-20 19:28:26 - INFO - Received: u:asd from 88:bf:e4:96:0f:98
+29-12-20 19:28:30 - INFO - User created
+29-12-20 19:29:08 - ERROR - Traceback (most recent call last):
+29-12-20 19:29:08 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 865, in run
+29-12-20 19:29:08 - ERROR - self._target(*self._args, **self._kwargs)
+29-12-20 19:29:08 - ERROR -   File "C:/Users/Vesko/PycharmProjects/garage/main.py", line 26, in clientthread
+29-12-20 19:29:08 - ERROR - user = commands.checkUserMac(macaddr)
+29-12-20 19:29:08 - ERROR -   File "C:\Users\Vesko\PycharmProjects\garage\commands.py", line 115, in checkUserMac
+29-12-20 19:29:08 - ERROR - if u[1] == mac:
+29-12-20 19:29:08 - ERROR - IndexError
+29-12-20 19:29:08 - ERROR - :
+29-12-20 19:29:08 - ERROR - list index out of range
+29-12-20 19:29:08 - ERROR - Exception in thread Thread-6:
+29-12-20 19:29:08 - ERROR - Traceback (most recent call last):
+29-12-20 19:29:08 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 917, in _bootstrap_inner
+29-12-20 19:29:08 - ERROR -     self.run()
+29-12-20 19:29:08 - ERROR -   File "C:\Users\Vesko\AppData\Local\Programs\Python\Python37-32\lib\threading.py", line 865, in run
+29-12-20 19:29:08 - ERROR -     self._target(*self._args, **self._kwargs)
+29-12-20 19:29:08 - ERROR -   File "C:/Users/Vesko/PycharmProjects/garage/main.py", line 26, in clientthread
+29-12-20 19:29:08 - ERROR -     user = commands.checkUserMac(macaddr)
+29-12-20 19:29:08 - ERROR -   File "C:\Users\Vesko\PycharmProjects\garage\commands.py", line 115, in checkUserMac
+29-12-20 19:29:08 - ERROR -     if u[1] == mac:
+29-12-20 19:29:08 - ERROR - IndexError: list index out of range
+29-12-20 19:31:07 - INFO - False
+29-12-20 19:31:07 - INFO - Setmode done!
+29-12-20 19:31:07 - INFO - Pin [11, 13, 15, 16] sets to OUTPUT
+29-12-20 19:31:27 - INFO - Waiting for connection on RFCOMM channel 4
+29-12-20 19:32:07 - INFO - Accepted Bluetooth connection from 88:BF:E4:96:0F:98
+29-12-20 19:32:29 - INFO - 88:bf:e4:96:0f:98 is asd
+29-12-20 19:32:40 - INFO - Received: u:awe from asd
+29-12-20 19:32:41 - INFO - ERROR:Cannot change username

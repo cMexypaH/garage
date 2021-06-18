@@ -64,13 +64,13 @@ def command(recieved_data, user):
                 elif type_command == SIMPLE_COMMAND and user_good is True:
                     command = parsed_data[1]
                     if command == "opengarage" and u_role >= ROLE_GARAGE:
-                        Thread(target=controlPins, args=(11, 1,)).start()
+                        Thread(target=controlPins, args=(11, 0.1,)).start()
                         rtrn += "Garage is opening"
                     if command == "closegarage" and u_role >= ROLE_GARAGE:
-                        Thread(target=controlPins, args=(13, 1,)).start()
+                        Thread(target=controlPins, args=(13, 0.1,)).start()
                         rtrn += "Garage is closing"
                     if command == "stopgarage" and u_role >= ROLE_GARAGE:
-                        Thread(target=controlPins, args=(15, 1,)).start()
+                        Thread(target=controlPins, args=(15, 0.1,)).start()
                         rtrn += "Garage is stopped"
                     if command == "openentrance" and u_role >= ROLE_ENTRANCE:
                         timeentrance = int(parsed_data[2])
@@ -111,9 +111,10 @@ def checkUserMac(mac):
     us = Users(mac)
     if users is not None:
         for user in users:
-            u = user.split(';')
-            if u[1] == mac:
-                us.name = u[0]
-                us.role = u[2]
-                return us
+            if user != '\n':
+                u = user.split(';')
+                if u[1] == mac:
+                    us.name = u[0]
+                    us.role = u[2]
+                    return us
     return us
