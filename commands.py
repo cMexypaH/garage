@@ -6,6 +6,8 @@ import time
 import logger
 import fileHandler
 from classes import Users
+import classes
+import json
 
 logger.init()
 
@@ -42,13 +44,14 @@ def command(recieved_data, user):
             if user.name != user.mac:  # ako usera sushtestvuva
                 u_role = int(user.role)
                 global user_good
-                if type_command == USER_NAME and user.name != parsed_data[1]:
+                if type_command == USER_NAME and user.name != parsed_data[1]: # ako usera e s drugo ime
                     rtrn = "ERROR:Cannot change username"
                     user_good = False
-                elif type_command == USER_NAME and user.name == parsed_data[1]:
+                elif type_command == USER_NAME and user.name == parsed_data[1]: # ako usera suvpada s imeto
                     rtrn = "Welcome " + user.name
                     user_good = True
-                elif type_command == RAW_COMMAND and u_role >= ROLE_RAW and user_good is True:
+                    user_json = json.dumps(user, cls=classes.UserJSONEncoder) #serializirane na obekt user kum JSON
+                elif type_command == RAW_COMMAND and u_role >= ROLE_RAW and user_good is True: # RAW command i usera ima prava za RAW
                     parsed_command = parsed_data[1].split(';')
                     pin_number = int(parsed_command[0])
                     is_high = True
@@ -61,25 +64,25 @@ def command(recieved_data, user):
                     elif len(parsed_command) == 2:
                         GPIO.output(pin_number, is_high)
                         rtrn += f"Pin {pin_number} is {is_high} "
-                elif type_command == SIMPLE_COMMAND and user_good is True:
+                elif type_command == SIMPLE_COMMAND and user_good is True: # prosta komanda
                     command = parsed_data[1]
-                    if command == "opengarage" and u_role >= ROLE_GARAGE:
+                    if command == "opengarage" and u_role >= ROLE_GARAGE: # proverka za prava za ovarqne na garage
                         Thread(target=controlPins, args=(11, 0.1,)).start()
                         rtrn += "Garage is opening"
-                    if command == "closegarage" and u_role >= ROLE_GARAGE:
+                    if command == "closegarage" and u_role >= ROLE_GARAGE: # proverka za prava za zatvarqne na garage
                         Thread(target=controlPins, args=(13, 0.1,)).start()
                         rtrn += "Garage is closing"
-                    if command == "stopgarage" and u_role >= ROLE_GARAGE:
+                    if command == "stopgarage" and u_role >= ROLE_GARAGE: # proverka za prava za spirane na garage
                         Thread(target=controlPins, args=(15, 0.1,)).start()
                         rtrn += "Garage is stopped"
-                    if command == "openentrance" and u_role >= ROLE_ENTRANCE:
+                    if command == "openentrance" and u_role >= ROLE_ENTRANCE: # proverka za prava za otvarqne na vhod
                         timeentrance = int(parsed_data[2])
                         Thread(target=controlPins, args=(16, timeentrance,)).start()
                         rtrn += f"Entrance unlocked for {timeentrance} seconds"
-                    if parsed_data[1] == 'restart' and u_role >= ROLE_ADMIN:
+                    if parsed_data[1] == 'restart' and u_role >= ROLE_ADMIN: ## proverka za prava na admin i restart na modula
                         rtrn += "Restarting"
                         os.system('reboot')
-                    if command == "getusers" and u_role >= ROLE_ADMIN:
+                    if command == "getusers" and u_role >= ROLE_ADMIN: # proverka za prava za admin i vzimane na userite
                         userlist = str(fileHandler.read(USERS_FILE))[1:-1]
                         userlist = userlist.replace("'", "")
                         userlist = userlist.replace(",", "")
@@ -87,7 +90,7 @@ def command(recieved_data, user):
                         rtrn = "[users]" + userlist
                 else:
                     rtrn += "Wrong command!"
-            else:
+            else: # ako ne sushtestvuva usera(nov user) se zapisva username i MAC
                 if type_command == USER_NAME:
                     rec_username = parsed_data[1]
                     fileHandler.write(USERS_FILE, rec_username, user.mac, "0")
@@ -118,3 +121,5 @@ def checkUserMac(mac):
                     us.role = u[2]
                     return us
     return us
+
+

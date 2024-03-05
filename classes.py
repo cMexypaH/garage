@@ -1,3 +1,7 @@
+import json
+from json import JSONEncoder
+
+
 class Users:
     def __init__(self, mac):
         self.mac = mac
@@ -25,3 +29,9 @@ class Users:
 
     def get_mac(self):
         return self.mac
+
+
+class UserJSONEncoder(JSONEncoder):
+    def default(self, obj):
+        return obj.__dict__
+
