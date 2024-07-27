@@ -19,7 +19,8 @@ ROLE_RAW = 3
 ROLE_ADMIN = 4
 ROLE_OWNER = 5
 
-USERS_FILE = "/home/pi/garage/users.txt"
+USERS_FILE = "/home/pi/garage/users.txt"   # za raspberry
+#USERS_FILE = "users.txt"                    # za testove na windows
 
 RAW_COMMAND = 'raw'     # raw:11:h:3
 SIMPLE_COMMAND = 'c'    # c:openentrance:5
@@ -42,6 +43,7 @@ def command(recieved_data, user):
             parsed_data = recieved_data.split(':')
             type_command = parsed_data[0]
             if user.name != user.mac:  # ako usera sushtestvuva
+                global u_role
                 u_role = int(user.role)
                 global user_good
                 if type_command == USER_NAME and user.name != parsed_data[1]: # ako usera e s drugo ime
@@ -66,28 +68,21 @@ def command(recieved_data, user):
                         rtrn += f"Pin {pin_number} is {is_high} "
                 elif type_command == SIMPLE_COMMAND and user_good is True: # prosta komanda
                     command = parsed_data[1]
-                    if command == "opengarage" and u_role >= ROLE_GARAGE: # proverka za prava za ovarqne na garage
-                        Thread(target=controlPins, args=(11, 0.1,)).start()
-                        rtrn += "Garage is opening"
-                    if command == "closegarage" and u_role >= ROLE_GARAGE: # proverka za prava za zatvarqne na garage
-                        Thread(target=controlPins, args=(13, 0.1,)).start()
-                        rtrn += "Garage is closing"
-                    if command == "stopgarage" and u_role >= ROLE_GARAGE: # proverka za prava za spirane na garage
-                        Thread(target=controlPins, args=(15, 0.1,)).start()
-                        rtrn += "Garage is stopped"
-                    if command == "openentrance" and u_role >= ROLE_ENTRANCE: # proverka za prava za otvarqne na vhod
+                    if u_role >= ROLE_GARAGE:
+                        rtrn += garagecmd(command)
+                    if command == "openentrance" and role(ROLE_ENTRANCE): # proverka za prava za otvarqne na vhod
                         timeentrance = int(parsed_data[2])
                         Thread(target=controlPins, args=(16, timeentrance,)).start()
                         rtrn += f"Entrance unlocked for {timeentrance} seconds"
-                    if parsed_data[1] == 'restart' and u_role >= ROLE_ADMIN: ## proverka za prava na admin i restart na modula
-                        rtrn += "Restarting"
-                        os.system('reboot')
-                    if command == "getusers" and u_role >= ROLE_ADMIN: # proverka za prava za admin i vzimane na userite
+                    if command == "getusers" and role(ROLE_ADMIN): # proverka za prava za admin i vzimane na userite
                         userlist = str(fileHandler.read(USERS_FILE))[1:-1]
                         userlist = userlist.replace("'", "")
                         userlist = userlist.replace(",", "")
                         userlist = userlist.replace(" ", "")
                         rtrn = "[users]" + userlist
+                    if parsed_data[1] == 'restart' and role(ROLE_ADMIN): ## proverka za prava na admin i restart na modula
+                        rtrn += "Restarting"
+                        os.system('reboot')
                 else:
                     rtrn += "Wrong command!"
             else: # ako ne sushtestvuva usera(nov user) se zapisva username i MAC
@@ -99,7 +94,7 @@ def command(recieved_data, user):
                     rtrn += "User created"
     except (ValueError, IndexError, Exception) as e:
         print(e)
-        return str.encode("!!! ERROR - check logs !!!")
+        return str.encode("!!! ERROR - check logs !!! \n")
     return rtrn
 
 
@@ -123,3 +118,30 @@ def checkUserMac(mac):
     return us
 
 
+def role(Role):
+    if u_role >= Role:
+        return True
+    else:
+        return False
+
+
+def garagecmd(cmd):
+        if cmd == "opengarage":  # proverka za prava za ovarqne na garage
+            Thread(target=controlPins, args=(11, 0.1,)).start()
+            Thread(target=waitforstop, args=(60,)).start()
+            return "Garage is opening"
+        if cmd == "closegarage":  # proverka za prava za zatvarqne na garage
+            Thread(target=controlPins, args=(13, 0.1,)).start()
+            Thread(target=waitforstop, args=(60,)).start()
+            return "Garage is closing"
+        if cmd == "stopgarage":  # proverka za prava za spirane na garage
+            Thread(target=controlPins, args=(15, 0.1,)).start()
+            return "Garage is stopped"
+        else:
+            return ""
+
+
+def waitforstop(waitTime):
+    time.sleep(waitTime)
+    garagecmd("stopgarage")
+    print("Garage is stopped")

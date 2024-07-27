@@ -7,10 +7,21 @@ import sys
 import dbus
 import dbus.service
 import dbus.mainloop.glib
-try:
-  from gi.repository import GObject
-except ImportError:
-  import gobject as GObject
+
+if sys.version_info < (3,):
+	try:
+		from gi.repository import GObject
+	except ImportError:
+		import gobject as GObject
+
+	gobject_MainLoop = GObject.MainLoop
+
+else:
+	from gi.repository import GObject as gobject
+	from gi.repository import GLib
+	gobject_MainLoop = GLib.MainLoop
+
+
 import bluezutils
 
 import sspmode
@@ -160,9 +171,9 @@ if __name__ == '__main__':
 	path = "/test/agent"
 	agent = Agent(bus, path)
 
-	mainloop = GObject.MainLoop()
+	mainloop = gobject_MainLoop()
 
-	obj = bus.get_object(BUS_NAME, "/org/bluez");
+	obj = bus.get_object(BUS_NAME, "/org/bluez")
 	manager = dbus.Interface(obj, "org.bluez.AgentManager1")
 	manager.RegisterAgent(path, capability)
 
